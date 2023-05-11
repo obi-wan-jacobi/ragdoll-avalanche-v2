@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "allowJs": false,
+    "target": "esnext",
+    "module": "esnext",
+    "sourceMap": true,
+    "baseUrl": "src",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "types": ["node"],
+    "paths": {
+      "app/*": ["app/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

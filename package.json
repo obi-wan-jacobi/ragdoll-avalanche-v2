@@ -1,0 +1,37 @@
+{
+  "name": "template-nodejs-ts-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .ts,.tsx --fix",
+    "prettier-format": "prettier --config ./.prettierrc .//**/*.{ts,js,jsx,json} --write",
+    "build": "npm run lint && npm run prettier-format && rimraf ./dist && webpack",
+    "serve": "npm run build && webpack-dev-server"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@types/node": "^10.17.60",
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "@webpack-cli/serve": "^1.5.2",
+    "babel-loader": "^8.3.0",
+    "copy-webpack-plugin": "^6.4.1",
+    "eslint": "^7.31.0",
+    "eslint-cli": "^1.1.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.1",
+    "prettier": "^2.8.8",
+    "raw-loader": "^4.0.2",
+    "rimraf": "^2.7.1",
+    "ts-loader": "^9.4.2",
+    "tsconfig-paths-webpack-plugin": "^3.5.1",
+    "typescript": "^3.9.10",
+    "webpack": "^5.82.1",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "author": "obi-wan-jacobi",
+  "license": ""
+}
