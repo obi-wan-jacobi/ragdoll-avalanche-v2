@@ -6,6 +6,7 @@
   },
   "plugins": ["@typescript-eslint"],
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "ignorePatterns": ["*.config.js"],
   "rules": {
     "arrow-parens": "error",
     "comma-dangle": ["error", "always-multiline"],
