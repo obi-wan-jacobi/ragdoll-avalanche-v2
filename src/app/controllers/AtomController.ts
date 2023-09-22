@@ -1,3 +1,4 @@
+import { PoseComponent } from '@plasmastrapi/ecs';
 import { IController } from '@plasmastrapi/html5-canvas';
 import { AccelerationComponent } from '@plasmastrapi/physics';
 import Atom from 'app/entities/Atom';
@@ -8,7 +9,11 @@ export default class AtomController implements IController {
   private __atom: Atom;
 
   public init(): void {
-    this.__atom = new Atom({ x: 100, y: 100 });
+    this.__atom = new Atom({ x: 500, y: 100 });
+  }
+
+  public mousemove(event: MouseEvent): void {
+    this.__atom.$patch(PoseComponent, { x: event.x, y: event.y });
   }
 
   public startMovingUp(): void {

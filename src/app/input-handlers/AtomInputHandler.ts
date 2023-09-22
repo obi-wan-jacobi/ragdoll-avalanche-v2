@@ -1,5 +1,5 @@
 import { Index } from '@plasmastrapi/base';
-import { IKeyboardEvent, InputHandler, KEYBOARD_EVENT } from '@plasmastrapi/html5-canvas';
+import { IKeyboardEvent, InputHandler, KEYBOARD_EVENT, MOUSE_EVENT } from '@plasmastrapi/html5-canvas';
 import { app } from 'app/main';
 
 export default class AtomInputHandler extends InputHandler {
@@ -31,5 +31,9 @@ export default class AtomInputHandler extends InputHandler {
     if (this.__keyUpMap[event.key]) {
       this.__keyUpMap[event.key]();
     }
+  }
+
+  [MOUSE_EVENT.MOUSE_MOVE](event: MouseEvent): void {
+    app.controllers.atom.mousemove(event);
   }
 }

@@ -48,7 +48,7 @@ export default class CollisionSystem extends System {
   }: {
     entities: IEntityMaster;
     components: IComponentMaster;
-    delta: number;
+    deltaTime: number;
     viewport: IViewport<any>;
   }): void {
     entities.forEvery(Entity)((entity) => {

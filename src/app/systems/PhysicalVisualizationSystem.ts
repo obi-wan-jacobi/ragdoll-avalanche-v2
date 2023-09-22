@@ -20,7 +20,7 @@ export default class PhysicalVisualizationSystem extends RenderingSystem {
   }: {
     entities: IEntityMaster;
     components: IComponentMaster;
-    delta: number;
+    deltaTime: number;
     viewport: IViewport<any>;
   }): void {
     entities.forEvery(Entity)((entity) => {

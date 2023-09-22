@@ -3,7 +3,7 @@ import App from './App';
 import { ImageSystem, LabelSystem, LineSystem, PoseSystem, ShapeSystem } from '@plasmastrapi/engine';
 import { InputController } from '@plasmastrapi/html5-canvas';
 import LevelController from './controllers/LevelController';
-import { AccelerationSystem, GravitySystem, ImpulseSystem, VelocitySystem } from '@plasmastrapi/physics';
+import { AccelerationSystem, GravitySystem, VelocitySystem } from '@plasmastrapi/physics';
 import { AnimationSystem } from '@plasmastrapi/animation';
 import HandleController from './controllers/HandleController';
 import HandleInputHandler from './input-handlers/HandleInputHandler';
@@ -16,6 +16,10 @@ import AtomSystem from './systems/AtomSystem';
 import AtomController from './controllers/AtomController';
 import AtomInputHandler from './input-handlers/AtomInputHandler';
 import PhysicalVisualizationSystem from './systems/PhysicalVisualizationSystem';
+import ImpulsesSystem from './systems/ImpulsesSystem';
+import PikumaSystem from './systems/PikumaSystem';
+import EngineController from './controllers/EngineController';
+import EngineInputHandler from './input-handlers/EngineInputHandler';
 
 const canvas = document.getElementById('app-target') as HTMLCanvasElement;
 canvas.width = 1280;
@@ -26,6 +30,7 @@ export const app = new App({
   canvas,
   controllers: {
     input: new InputController({ canvas }),
+    engine: new EngineController(),
     level: new LevelController(),
     handle: new HandleController(),
     ragdoll: new RagdollController(),
@@ -39,18 +44,19 @@ export const app = new App({
     ImageSystem,
     // AnimationSystem,
     FPSSystem,
-    ImpulseSystem,
+    ImpulsesSystem,
     GravitySystem,
     AccelerationSystem,
     VelocitySystem,
 
     // HandleSystem,
-    PhysicalVisualizationSystem,
-    CollisionSystem,
-    AtomSystem,
+    // PhysicalVisualizationSystem,
+    // CollisionSystem,
+    // AtomSystem,
+    PikumaSystem,
   ],
 });
 
 app.init();
-app.controllers.input.setHandler(AtomInputHandler);
+app.controllers.input.setHandler(EngineInputHandler);
 app.start();

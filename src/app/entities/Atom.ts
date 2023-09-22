@@ -3,14 +3,16 @@ import { IPoint, IShape } from '@plasmastrapi/geometry';
 import { HTML5CanvasElement } from '@plasmastrapi/html5-canvas';
 import { AccelerationComponent, GravityComponent, PhysicalComponent, VelocityComponent } from '@plasmastrapi/physics';
 import { CONSTANTS } from 'app/CONSTANTS';
+import ImpulsesComponent from 'app/components/ImpulsesComponent';
 
 export default class Atom extends HTML5CanvasElement {
   public constructor({ x, y }: IPoint, a = 0) {
     super();
-    this.$add(PoseComponent, { x, y, a });
+    this.$add(PoseComponent, { x: 100, y: 100, a });
     this.$add(ShapeComponent, calculatePolygonVertices(30, 50));
     this.$add(PhysicalComponent, { mass: 1 });
-    this.$add(VelocityComponent, { x: 0, y: 0, w: 5 });
+    this.$add(ImpulsesComponent, { values: [] });
+    this.$add(VelocityComponent, { x: 100, y: 0, w: 0 });
     this.$add(AccelerationComponent, { x: 0, y: 0, w: 0 });
     this.$add(GravityComponent, { x: 0, y: CONSTANTS.GRAVITY });
   }

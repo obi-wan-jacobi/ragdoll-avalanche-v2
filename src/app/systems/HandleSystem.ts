@@ -22,7 +22,7 @@ export default class HandleSystem extends System {
   }: {
     entities: IEntityMaster;
     components: IComponentMaster;
-    delta: number;
+    deltaTime: number;
     viewport: IViewport<any>;
   }): void {
     entities.forEvery(Handle)((handle) => {
